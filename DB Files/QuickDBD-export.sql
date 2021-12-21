@@ -6,10 +6,10 @@ CREATE TABLE "OHT_Pricing" (
     "BudgetID" varchar   NOT NULL,
     "EstimateID" varchar   NOT NULL,
     "CostCode" varchar   NOT NULL,
-    "EstimateAmount" double   NOT NULL,
-    "BudgetAmount" double   NOT NULL,
+    "EstimateAmount" float   NOT NULL,
+    "BudgetAmount" float   NOT NULL,
     "BudgetType" varchar   NOT NULL,
-    "Budgeted" double   NOT NULL,
+    "Budgeted" float   NOT NULL,
     "Qualifications" text   NOT NULL,
     "Specs" text   NOT NULL,
     "Assumptions" text   NOT NULL,
@@ -19,16 +19,16 @@ CREATE TABLE "OHT_Pricing" (
     "CSIDivision" int   NOT NULL,
     "ScopeID" varchar   NOT NULL,
     "Bidder1" varchar   NOT NULL,
-    "Bidder1_Amount" double   NOT NULL,
+    "Bidder1_Amount" float   NOT NULL,
     "Bidder1_Date" date   NOT NULL,
     "Bidder2" varchar   NOT NULL,
-    "Bidder2_Amount" double   NOT NULL,
+    "Bidder2_Amount" float   NOT NULL,
     "Bidder2_Date" date   NOT NULL,
     "Bidder3" varchar   NOT NULL,
-    "Bidder3_Amount" double   NOT NULL,
+    "Bidder3_Amount" float   NOT NULL,
     "Bidder3_Date" date   NOT NULL,
     "Bidder4" varchar   NOT NULL,
-    "Bidder4_Amount" double   NOT NULL,
+    "Bidder4_Amount" float   NOT NULL,
     "Bidder4_Date" date   NOT NULL,
     CONSTRAINT "pk_OHT_Pricing" PRIMARY KEY (
         "BudgetID"
@@ -57,16 +57,16 @@ CREATE TABLE "OHT_scopes" (
 
 CREATE TABLE "OHT_projectinfo" (
     "ProjectID" varchar   NOT NULL,
-    "ProjectName" varchar   NOT NULL,
-    "CompanyID" varchar   NOT NULL,
-    "ProjectRegion" varchar   NOT NULL,
-    "ProjectAddress" varchar   NOT NULL,
-    "ProjectCity" varchar   NOT NULL,
-    "ProjectState" varchar   NOT NULL,
-    "Acres" double   NOT NULL,
-    "SoilType" varchar   NOT NULL,
-    "GroundWater" varchar   NOT NULL,
-    "EstStartDate" date   NOT NULL,
+    "ProjectName" varchar,
+    "CompanyID" varchar,
+    "ProjectRegion" varchar,
+    "ProjectAddress" varchar,
+    "ProjectCity" varchar,
+    "ProjectState" varchar,
+    "Acres" float,
+    "SoilType" varchar,
+    "GroundWater" varchar,
+    "EstStartDate" date,
     CONSTRAINT "pk_OHT_projectinfo" PRIMARY KEY (
         "ProjectID"
      )
@@ -74,9 +74,9 @@ CREATE TABLE "OHT_projectinfo" (
 
 CREATE TABLE "OHT_companies" (
     "CompanyID" varchar   NOT NULL,
-    "CompanyAddress" varchar   NOT NULL,
-    "CompanyName" varchar   NOT NULL,
-    "CompanyType" varchar   NOT NULL,
+    "CompanyAddress" varchar,
+    "CompanyName" varchar,
+    "CompanyType" varchar,
     CONSTRAINT "pk_OHT_companies" PRIMARY KEY (
         "CompanyID"
      )
@@ -84,6 +84,7 @@ CREATE TABLE "OHT_companies" (
 
 CREATE TABLE "OHT_regions" (
     "Region" varchar   NOT NULL,
+    "Region Name" varchar,
     CONSTRAINT "pk_OHT_regions" PRIMARY KEY (
         "Region"
      )
@@ -98,20 +99,20 @@ CREATE TABLE "OHT_soiltypes" (
 
 CREATE TABLE "OHT_estimateinfo" (
     "EstimateID" varchar   NOT NULL,
-    "ProjectID" varchar   NOT NULL,
-    "PlanLevel" varchar   NOT NULL,
-    "ProjectType" varchar   NOT NULL,
-    "ProjectSubType" varchar   NOT NULL,
-    "TaxExempt" varchar   NOT NULL,
-    "HUD" varchar   NOT NULL,
-    "Student" varchar   NOT NULL,
-    "UnitCount" int   NOT NULL,
-    "BedCount" int   NOT NULL,
-    "NRSF" double   NOT NULL,
-    "Buildings" int   NOT NULL,
-    "Duration" int   NOT NULL,
-    "Milestone" varchar   NOT NULL,
-    "CreateTime" date   NOT NULL,
+    "ProjectID" varchar,
+    "PlanLevel" varchar,
+    "ProjectType" varchar,
+    "ProjectSubType" varchar,
+    "TaxExempt" varchar,
+    "HUD" varchar,
+    "Student" varchar,
+    "UnitCount" int,
+    "BedCount" int,
+    "NRSF" float,
+    "Buildings" int,
+    "Duration" int,
+    "Milestone" varchar,
+    "CreateTime" date,
     CONSTRAINT "pk_OHT_estimateinfo" PRIMARY KEY (
         "EstimateID"
      )
@@ -119,7 +120,7 @@ CREATE TABLE "OHT_estimateinfo" (
 
 CREATE TABLE "OHT_projecttypes" (
     "ProjectSubType" varchar   NOT NULL,
-    "ProjectType" varchar   NOT NULL,
+    "ProjectType" varchar,
     CONSTRAINT "pk_OHT_projecttypes" PRIMARY KEY (
         "ProjectSubType"
      )
